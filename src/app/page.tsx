@@ -18,10 +18,12 @@ export default function LandingPage() {
         <div className="absolute -bottom-[20%] left-[20%] w-[50%] h-[50%] rounded-full bg-purple-500/15 blur-[120px]" />
       </div>
 
-      <nav className="w-full flex justify-between items-center p-6 lg:px-12 backdrop-blur-sm border-b border-foreground/5 z-10 sticky top-0 bg-background/80">
+      <nav className="fixed top-0 left-0 right-0 w-full flex justify-between items-center p-6 lg:px-12 backdrop-blur-md border-b border-foreground/5 z-50 bg-background/80">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-xl">S</div>
-          <span className="font-bold text-xl tracking-tight">SocialNiche AI</span>
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+          </div>
+          <span className="font-bold text-xl tracking-tight">ContentVelocity AI</span>
         </div>
         <div className="flex gap-4">
           <Link href="/dashboard">
@@ -33,44 +35,54 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-12 z-10 w-full max-w-7xl mx-auto">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-12 z-10 w-full max-w-7xl mx-auto">
 
         {/* HERO SECTION */}
-        <section className="text-center space-y-8 max-w-4xl mx-auto pt-10 pb-20">
+        <section className="text-center space-y-8 max-w-4xl mx-auto pt-2 pb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              <Sparkles className="w-4 h-4" />
-              <span>Scale Your Brand's Voice with AI</span>
-            </div>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 15 }}
+              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border border-purple-500/20 text-sm font-semibold mb-6 shadow-sm cursor-default transition-shadow hover:shadow-purple-500/20"
+            >
+              <Sparkles className="w-4 h-4 text-purple-500 animate-pulse" />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-600 dark:from-indigo-400 dark:to-pink-400">Scale Your Brand's Voice with AI</span>
+            </motion.div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground mb-6">
-              Amplify Your Social Presence <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-                Tailored for B2B and B2C.
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground mb-6 leading-tight">
+              Scale Your Brand's Voice with AI <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 drop-shadow-sm">
+                Zero Effort. Maximum Impact.
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-              Generate original content, discover trends and influencers, and schedule posts effortlessly. Whether building B2B leads or B2C buzz, SocialNiche AI handles it with zero cognitive load.
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+              Eliminate hours of trial-and-error in content creation. ContentVelocity AI produces original, high-performing posts tailored to your brand, identifies emerging trends and influencers ahead of the competition, and enables seamless scheduling across platforms—so you can accelerate lead generation, revenue growth, and audience engagement with precision and consistency.
             </p>
 
-            <div className="flex justify-center gap-3 sm:gap-6 flex-wrap text-sm text-muted-foreground font-medium mb-10">
-              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> 100% Original Content</span>
-              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> Real-Time Trends</span>
-              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> Seamless Scheduling</span>
-              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> B2B Leads & B2C Virality</span>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/onboarding">
-                <Button size="lg" className="h-14 px-8 text-lg w-full sm:w-auto shadow-lg shadow-primary/25">
-                  Start Generating Free <ArrowRight className="ml-2 w-5 h-5" />
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+              <Link href="/onboarding" className="w-full sm:w-auto">
+                <Button size="lg" className="h-14 px-8 text-lg w-full sm:w-auto shadow-lg shadow-blue-500/25 bg-blue-600 hover:bg-blue-700 text-white transition-all hover:scale-105 active:scale-95 group">
+                  Start Accelerating – Free Trial <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
+              <Button size="lg" variant="outline" className="h-14 px-8 text-lg w-full sm:w-auto hover:bg-muted transition-colors">
+                Watch a 2-Minute Demo
+              </Button>
+            </div>
+
+            <div className="flex justify-center flex-wrap gap-x-4 gap-y-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-10 opacity-80">
+              <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-green-500" /> 100% Original Content</span>
+              <span className="hidden sm:inline">•</span>
+              <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-green-500" /> No Credit Card Required</span>
+              <span className="hidden sm:inline">•</span>
+              <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-green-500" /> Cancel Anytime</span>
             </div>
           </motion.div>
         </section>
@@ -83,7 +95,7 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:shadow-md hover:border-primary/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:shadow-md hover:border-purple-500/50">
               <CardHeader>
                 <div className="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4">
                   <WandSparkles className="w-6 h-6 text-purple-500" />
@@ -92,7 +104,7 @@ export default function LandingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm">
-                  Create posts, threads, reels with images/videos in seconds, adapted to your tone (executive for B2B, fun for B2C).
+                  Generate original, high-performing posts, threads, and visuals tailored to your voice in seconds.
                 </p>
                 <div className="mt-4 text-xs font-medium text-purple-600 dark:text-purple-400">Save 10+ hours a week</div>
               </CardContent>
@@ -103,11 +115,11 @@ export default function LandingPage() {
                 <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4">
                   <TrendingUp className="w-6 h-6 text-blue-500" />
                 </div>
-                <CardTitle>Trend & Keyword Analysis</CardTitle>
+                <CardTitle>Real-time Trend Analysis</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm">
-                  Spot emerging trends before your competitors—whether it's B2B enterprise SaaS insights or B2C viral TikTok challenges.
+                  Identify emerging trends and keywords before your competitors to stay ahead.
                 </p>
                 <div className="mt-4 text-xs font-medium text-blue-600 dark:text-blue-400">Boost Engagement by 2x</div>
               </CardContent>
@@ -118,11 +130,11 @@ export default function LandingPage() {
                 <div className="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-4">
                   <Users className="w-6 h-6 text-emerald-500" />
                 </div>
-                <CardTitle>Influencer Discovery</CardTitle>
+                <CardTitle>Partner/Influencer Discovery</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm">
-                  Find matches with active platforms listed; connect directly with B2B CMOs/VCs or partner with B2C aesthetic lifestyle creators.
+                  Find relevant influencers and collaborators with active platform insights.
                 </p>
                 <div className="mt-4 text-xs font-medium text-emerald-600 dark:text-emerald-400">Drive High-Intent Leads</div>
               </CardContent>
@@ -133,11 +145,11 @@ export default function LandingPage() {
                 <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mb-4">
                   <CalendarClock className="w-6 h-6 text-orange-500" />
                 </div>
-                <CardTitle>Calendar & Scheduling</CardTitle>
+                <CardTitle>Seamless Scheduling</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm">
-                  Drag-drop planning with seamless mock integrations for Buffer, LinkedIn, X, Instagram, and TikTok to post directly.
+                  Plan and publish across LinkedIn, X, Instagram, Facebook, and more with one-click ease.
                 </p>
                 <div className="mt-4 text-xs font-medium text-orange-600 dark:text-orange-400">Seamless Publishing</div>
               </CardContent>
@@ -148,7 +160,7 @@ export default function LandingPage() {
         {/* BENEFITS SECTION */}
         <section className="w-full py-20 border-t border-foreground/5 bg-muted/10 rounded-3xl px-8 my-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Why Choose SocialNiche AI?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Why Choose ContentVelocity AI?</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">Built precisely for marketers who need versatility without diluting quality.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
@@ -303,7 +315,7 @@ export default function LandingPage() {
                 <div className="flex text-yellow-500 mb-4">
                   ★ ★ ★ ★ ★
                 </div>
-                <p className="text-muted-foreground italic mb-6">"SocialNiche AI completely transformed our B2B marketing. I used to spend hours ghostwriting for our executives—now I just configure the tone and let the AI generate a month's worth of LinkedIn threads in 5 minutes."</p>
+                <p className="text-muted-foreground italic mb-6">"ContentVelocity AI completely transformed our B2B marketing. I used to spend hours ghostwriting for our executives—now I just configure the tone and let the AI generate a month's worth of LinkedIn threads in 5 minutes."</p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">MB</div>
                   <div>
@@ -337,8 +349,10 @@ export default function LandingPage() {
       <footer className="w-full border-t border-border bg-muted/20 py-12 px-6 lg:px-12 text-sm text-muted-foreground flex flex-col items-center justify-center">
         <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-xs">S</div>
-            <span className="font-bold text-foreground">SocialNiche AI</span>
+            <div className="w-6 h-6 rounded-md bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+            </div>
+            <span className="font-bold text-foreground">ContentVelocity AI</span>
           </div>
 
           <div className="flex gap-6">
@@ -353,7 +367,7 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="mt-8 text-xs text-center">
-          &copy; {new Date().getFullYear()} SocialNiche AI. All rights reserved. Built for 2026.
+          &copy; {new Date().getFullYear()} ContentVelocity AI. All rights reserved. Built for 2026.
         </div>
       </footer>
     </div>

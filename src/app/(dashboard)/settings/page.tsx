@@ -78,7 +78,7 @@ export default function SettingsPage() {
                         <CardHeader>
                             <CardTitle>Scheduling & Publishing</CardTitle>
                             <CardDescription>
-                                Connect your third-party scheduling tools or authenticate directly with social platforms to post directly from SocialNiche AI.
+                                Connect your third-party scheduling tools or authenticate directly with social platforms to post directly from ContentVelocity AI.
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-6">

@@ -65,13 +65,12 @@ export const Sidebar = () => {
     return (
         <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
             <div className="px-3 py-2 flex-1">
-                <Link href="/dashboard" className="flex items-center pl-3 mb-14">
-                    <div className="relative h-8 w-8 mr-4">
-                        {/* You can replace this with a proper Logo component/image */}
-                        <div className="bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-lg w-full h-full flex items-center justify-center font-bold text-xl">S</div>
+                <Link href="/dashboard" className="flex items-center gap-3 px-2 py-4 mb-4">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-xl shadow-md flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
                     </div>
                     <h1 className="font-bold text-2xl tracking-tight">
-                        SocialNiche AI
+                        ContentVelocity AI
                     </h1>
                 </Link>
                 <div className="space-y-1">

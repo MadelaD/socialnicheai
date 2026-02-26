@@ -56,7 +56,7 @@ export default function OnboardingWizard() {
                         {step === 4 && `Define your ${category === "B2B" ? "executive" : "brand"} voice.`}
                     </CardTitle>
                     <CardDescription>
-                        {step === 1 && "We'll tailor the entire SocialNiche experience to your category."}
+                        {step === 1 && "We'll tailor the entire ContentVelocity experience to your category."}
                         {step === 2 && `Tell the AI about your ${category === "B2B" ? "company" : "brand"} to generate hyper-relevant content.`}
                         {step === 3 && "Select the main channels you want to dominate."}
                         {step === 4 && `How should the AI sound when writing for your ${category === "B2B" ? "brand or executives" : "consumers"}?`}

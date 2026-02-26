@@ -1,6 +1,6 @@
-# SocialNiche AI
+# ContentVelocity AI
 
-SocialNiche AI is an intuitive, modern SaaS web application that helps brands and creators generate original, high-quality social media content and discover relevant influencers/publishers. Built with Next.js 15, Tailwind CSS v4, Shadcn UI, Clerk, Supabase, and the Google Gemini 3.x API via Vercel AI SDK.
+ContentVelocity AI is an intuitive, modern SaaS web application that helps brands and creators generate original, high-quality social media content and discover relevant influencers/publishers. Built with Next.js 15, Tailwind CSS v4, Shadcn UI, Clerk, Supabase, and the Google Gemini 3.x API via Vercel AI SDK.
 
 ## Features
 - **Personalized Onboarding**: Multi-step wizard creating dynamic brand profiles.

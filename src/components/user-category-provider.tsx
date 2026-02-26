@@ -17,7 +17,7 @@ export function UserCategoryProvider({ children }: { children: React.ReactNode }
 
     useEffect(() => {
         setMounted(true);
-        const saved = localStorage.getItem("socialniche_category");
+        const saved = localStorage.getItem("contentvelocity_category");
         if (saved && (saved === "B2B" || saved === "B2C")) {
             setCategory(saved);
         }
@@ -25,7 +25,7 @@ export function UserCategoryProvider({ children }: { children: React.ReactNode }
 
     const updateCategory = (newCategory: UserCategory) => {
         setCategory(newCategory);
-        localStorage.setItem("socialniche_category", newCategory);
+        localStorage.setItem("contentvelocity_category", newCategory);
     };
 
     return (
