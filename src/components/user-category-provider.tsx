@@ -28,13 +28,11 @@ export function UserCategoryProvider({ children }: { children: React.ReactNode }
         localStorage.setItem("socialniche_category", newCategory);
     };
 
-    if (!mounted) {
-        return <>{children}</>;
-    }
-
     return (
         <UserCategoryContext.Provider value={{ category, setCategory: updateCategory }}>
-            {children}
+            <div className={mounted ? "opacity-100 transition-opacity duration-300" : "opacity-0"}>
+                {children}
+            </div>
         </UserCategoryContext.Provider>
     );
 }
