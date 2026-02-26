@@ -9,8 +9,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "SocialNiche AI",
-  description: "Supercharge your social media with AI.",
+  title: "SocialNiche AI | AI Social Content Generator for B2B B2C",
+  description: "Generate original content, discover trends and influencers, and schedule posts effortlessly for B2B and B2C brands.",
 };
 
 export default function RootLayout({

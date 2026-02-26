@@ -3,184 +3,359 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Sparkles, ArrowRight, CheckCircle2, TrendingUp, Users, CalendarClock, WandSparkles, MessageSquare, Instagram, Image as ImageIcon, Video, Linkedin } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 flex flex-col relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-primary/20 blur-[100px]" />
+        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-primary/20 blur-[120px]" />
         <div className="absolute top-[20%] -right-[10%] w-[30%] h-[50%] rounded-full bg-blue-500/10 blur-[120px]" />
-        <div className="absolute -bottom-[20%] left-[20%] w-[50%] h-[50%] rounded-full bg-purple-500/10 blur-[120px]" />
+        <div className="absolute -bottom-[20%] left-[20%] w-[50%] h-[50%] rounded-full bg-purple-500/15 blur-[120px]" />
       </div>
 
-      <nav className="w-full flex justify-between items-center p-6 lg:px-12 backdrop-blur-sm border-b border-white/10 z-10 sticky top-0">
+      <nav className="w-full flex justify-between items-center p-6 lg:px-12 backdrop-blur-sm border-b border-foreground/5 z-10 sticky top-0 bg-background/80">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-xl">S</div>
-          <span className="font-bold text-xl tracking-tight">SocialNiche</span>
+          <span className="font-bold text-xl tracking-tight">SocialNiche AI</span>
         </div>
         <div className="flex gap-4">
           <Link href="/dashboard">
             <Button variant="ghost" className="hidden sm:flex">Log In</Button>
           </Link>
           <Link href="/onboarding">
-            <Button>Get Started</Button>
+            <Button>Start Free</Button>
           </Link>
         </div>
       </nav>
 
-      <main className="flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 pt-24 pb-12 sm:pt-32 sm:pb-20 z-10 w-full max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto space-y-8"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            <Sparkles className="w-4 h-4" />
-            <span>The B2B Social Engine, Powered by AI</span>
-          </div>
+      <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-12 z-10 w-full max-w-7xl mx-auto">
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100">
-            Scale your B2B voice with <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-              zero cognitive load.
-            </span>
-          </h1>
-
-          <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Stop guessing what works on LinkedIn and Twitter. SocialNiche AI analyzes live industry trends, discovers key B2B voices, and generates highly-original thought leadership tailored perfectly to your brand.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link href="/onboarding">
-              <Button size="lg" className="h-14 px-8 text-lg w-full sm:w-auto shadow-lg shadow-primary/20">
-                Start Generating Free <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-          </div>
-
-          <div className="pt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-zinc-600 dark:text-zinc-400 font-medium">
-            <div className="flex items-center justify-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-500" /> 100% Original Thought Leadership
+        {/* HERO SECTION */}
+        <section className="text-center space-y-8 max-w-4xl mx-auto pt-10 pb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+              <Sparkles className="w-4 h-4" />
+              <span>Scale Your Brand's Voice with AI</span>
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-500" /> Real-time Industry Trend Analytics
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-500" /> Executive Voice Personalization
-            </div>
-          </div>
-        </motion.div>
 
-        {/* Feature Highlights */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-32 w-full grid grid-cols-1 md:grid-cols-3 gap-8 text-left"
-        >
-          <div className="bg-card border rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6">
-              <svg className="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-            </div>
-            <h3 className="text-xl font-bold mb-3">AI Content Generator</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Generate compelling LinkedIn threads, Twitter thought leadership, and technical blog summaries in seconds. Our AI adapts to your executive tone.
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground mb-6">
+              Amplify Your Social Presence <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                Tailored for B2B and B2C.
+              </span>
+            </h1>
+
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+              Generate original content, discover trends and influencers, and schedule posts effortlessly. Whether building B2B leads or B2C buzz, SocialNiche AI handles it with zero cognitive load.
             </p>
-          </div>
 
-          <div className="bg-card border rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-pink-500/10 rounded-xl flex items-center justify-center mb-6">
-              <svg className="w-6 h-6 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" /></svg>
+            <div className="flex justify-center gap-3 sm:gap-6 flex-wrap text-sm text-muted-foreground font-medium mb-10">
+              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> 100% Original Content</span>
+              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> Real-Time Trends</span>
+              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> Seamless Scheduling</span>
+              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> B2B Leads & B2C Virality</span>
             </div>
-            <h3 className="text-xl font-bold mb-3">B2B Trend Analysis</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Stay ahead of the curve. We analyze millions of B2B conversations to highlight emerging trends in SaaS, fintech, enterprise AI, and more.
-            </p>
-          </div>
 
-          <div className="bg-card border rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6">
-              <svg className="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/onboarding">
+                <Button size="lg" className="h-14 px-8 text-lg w-full sm:w-auto shadow-lg shadow-primary/25">
+                  Start Generating Free <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
             </div>
-            <h3 className="text-xl font-bold mb-3">Partner Discovery</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Find the right voices for your next campaign. Discover B2B influencers, industry analysts, and complimentary brands with deep data insights.
-            </p>
-          </div>
-        </motion.div>
+          </motion.div>
+        </section>
 
-        {/* B2B Sample Content Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-32 w-full text-left"
-        >
+        {/* KEY FEATURES SECTION */}
+        <section className="w-full py-20 border-t border-foreground/5">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Everything You Need to Scale</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">From idea generation to direct publishing, we've built the ultimate pipeline.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:shadow-md hover:border-primary/50">
+              <CardHeader>
+                <div className="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4">
+                  <WandSparkles className="w-6 h-6 text-purple-500" />
+                </div>
+                <CardTitle>AI Content Generator</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  Create posts, threads, reels with images/videos in seconds, adapted to your tone (executive for B2B, fun for B2C).
+                </p>
+                <div className="mt-4 text-xs font-medium text-purple-600 dark:text-purple-400">Save 10+ hours a week</div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:shadow-md hover:border-blue-500/50">
+              <CardHeader>
+                <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4">
+                  <TrendingUp className="w-6 h-6 text-blue-500" />
+                </div>
+                <CardTitle>Trend & Keyword Analysis</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  Spot emerging trends before your competitors—whether it's B2B enterprise SaaS insights or B2C viral TikTok challenges.
+                </p>
+                <div className="mt-4 text-xs font-medium text-blue-600 dark:text-blue-400">Boost Engagement by 2x</div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:shadow-md hover:border-emerald-500/50">
+              <CardHeader>
+                <div className="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-emerald-500" />
+                </div>
+                <CardTitle>Influencer Discovery</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  Find matches with active platforms listed; connect directly with B2B CMOs/VCs or partner with B2C aesthetic lifestyle creators.
+                </p>
+                <div className="mt-4 text-xs font-medium text-emerald-600 dark:text-emerald-400">Drive High-Intent Leads</div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:shadow-md hover:border-orange-500/50">
+              <CardHeader>
+                <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mb-4">
+                  <CalendarClock className="w-6 h-6 text-orange-500" />
+                </div>
+                <CardTitle>Calendar & Scheduling</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  Drag-drop planning with seamless mock integrations for Buffer, LinkedIn, X, Instagram, and TikTok to post directly.
+                </p>
+                <div className="mt-4 text-xs font-medium text-orange-600 dark:text-orange-400">Seamless Publishing</div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* BENEFITS SECTION */}
+        <section className="w-full py-20 border-t border-foreground/5 bg-muted/10 rounded-3xl px-8 my-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">See what the AI can create</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">Generate high-converting, professional content tailored to B2B audiences on LinkedIn and Twitter.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Why Choose SocialNiche AI?</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Built precisely for marketers who need versatility without diluting quality.</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* LinkedIn Sample */}
-            <div className="border rounded-2xl bg-white dark:bg-zinc-900 shadow-xl overflow-hidden">
-              <div className="bg-muted/40 px-4 py-3 border-b flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
-                  <span className="font-semibold text-sm">LinkedIn Post</span>
-                </div>
-                <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium dark:bg-green-900/30 dark:text-green-400">100% Original</span>
-              </div>
-              <div className="p-6 text-sm text-zinc-800 dark:text-zinc-200 space-y-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-400 to-blue-600 flex items-center justify-center text-white font-bold">JD</div>
-                  <div>
-                    <p className="font-bold leading-none mb-1">Jane Doe</p>
-                    <p className="text-xs text-muted-foreground">VP of Engineering at Acme Corp</p>
-                  </div>
-                </div>
-                <p>The transition from monolith to microservices isn't just a technical challenge—it's an organizational shift. 💡</p>
-                <p>Over the last 6 months, our team at Acme Corp has been dissecting our legacy systems. Here are 3 non-obvious lessons we learned the hard way:</p>
-                <p>1️⃣ Conway's Law is ruthless. If your org chart is siloed, your microservices will be too.<br />
-                  2️⃣ Observability isn't a "Phase 2" feature. If you can't trace a request on day one, you're flying blind.<br />
-                  3️⃣ CI/CD pipelines need as much architectural thought as the application code.</p>
-                <p>What's the hardest lesson your team learned during a major migration? Let's discuss below. 👇</p>
-                <p className="text-blue-600 dark:text-blue-400 pt-2">#SoftwareEngineering #Microservices #TechLeadership #SaaS</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            <div className="flex gap-4">
+              <div className="mt-1 w-10 h-10 rounded-full bg-primary/10 flex-shrink-0 flex items-center justify-center text-primary"><Sparkles className="w-5 h-5" /></div>
+              <div>
+                <h4 className="text-lg font-bold mb-2">AI-Powered Originality</h4>
+                <p className="text-muted-foreground">Say goodbye to generic AI text. Our models include originality checks guaranteeing copyright-safe, unique content every time.</p>
               </div>
             </div>
-
-            {/* Twitter Thread Sample */}
-            <div className="border rounded-2xl bg-white dark:bg-zinc-900 shadow-xl overflow-hidden">
-              <div className="bg-muted/40 px-4 py-3 border-b flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-sky-500" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" /></svg>
-                  <span className="font-semibold text-sm">X (Twitter) Thread</span>
-                </div>
-                <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium dark:bg-green-900/30 dark:text-green-400">100% Original</span>
+            <div className="flex gap-4">
+              <div className="mt-1 w-10 h-10 rounded-full bg-blue-500/10 flex-shrink-0 flex items-center justify-center text-blue-500"><Linkedin className="w-5 h-5" /></div>
+              <div>
+                <h4 className="text-lg font-bold mb-2">B2B-Specific Optimization</h4>
+                <p className="text-muted-foreground">Generate thought leadership threads for LinkedIn and X perfectly tailored to nurture leads, drive pipeline, and establish executive authority.</p>
               </div>
-              <div className="p-6 text-sm text-zinc-800 dark:text-zinc-200 space-y-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-orange-400 to-red-600 flex items-center justify-center text-white font-bold">MK</div>
-                  <div>
-                    <p className="font-bold leading-none mb-1">Mike Kline</p>
-                    <p className="text-xs text-muted-foreground">@mkline_growth</p>
-                  </div>
-                </div>
-                <p>B2B Marketing is broken.<br /><br />We're still acting like buyers want to read 40-page PDFs hidden behind 12-field registration forms.<br /><br />Here is the modern playbook for B2B growth in 2026. 🧵👇</p>
-                <div className="pl-4 border-l-2 border-muted mt-4 space-y-4">
-                  <p className="text-muted-foreground"><span className="font-semibold text-foreground">1/ Ungate your best content.</span><br />If your content is truly valuable, use it to build trust, not an email list. Trust converts faster than a forced newsletter subscription.</p>
-                  <p className="text-muted-foreground"><span className="font-semibold text-foreground">2/ Founder-led brands win.</span><br />People buy from people. If your CEO isn't posting insights on LinkedIn or X twice a week, you're leaving revenue on the table.</p>
-                </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="mt-1 w-10 h-10 rounded-full bg-pink-500/10 flex-shrink-0 flex items-center justify-center text-pink-500"><Instagram className="w-5 h-5" /></div>
+              <div>
+                <h4 className="text-lg font-bold mb-2">B2C-Specific Virality</h4>
+                <p className="text-muted-foreground">Craft viral Instagram Reels, TikTok scripts, and visually-rich campaigns designed to rapidly grow followers and accelerate D2C sales.</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="mt-1 w-10 h-10 rounded-full bg-emerald-500/10 flex-shrink-0 flex items-center justify-center text-emerald-500"><TrendingUp className="w-5 h-5" /></div>
+              <div>
+                <h4 className="text-lg font-bold mb-2">Shared Analytics Dashboard</h4>
+                <p className="text-muted-foreground">Track everything in one place. Analytics per platform dynamically adjusted for B2B KPIs (leads) or B2C KPIs (views/conversions).</p>
               </div>
             </div>
           </div>
-        </motion.div>
+        </section>
+
+        {/* USE CASES & SAMPLES SECTION */}
+        <section className="w-full py-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">See It In Action</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Whether you're selling enterprise software or sustainable fashion, we've got you covered.</p>
+          </div>
+
+          <Tabs defaultValue="b2b" className="w-full max-w-4xl mx-auto">
+            <TabsList className="grid w-full grid-cols-2 mb-8 h-12">
+              <TabsTrigger value="b2b" className="text-base font-medium">B2B: SaaS & Enterprise</TabsTrigger>
+              <TabsTrigger value="b2c" className="text-base font-medium">B2C: Lifestyle & E-Commerce</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="b2b" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="space-y-6 text-left">
+                  <Badge variant="outline" className="text-blue-500 border-blue-200 bg-blue-50 dark:bg-blue-900/30">B2B Use Case</Badge>
+                  <h3 className="text-2xl font-bold">Scaling Executive Voice for SaaS</h3>
+                  <p className="text-muted-foreground text-lg">"We used the AI to post weekly LinkedIn threads on churn reduction. It completely automated our thought leadership."</p>
+                  <div className="grid grid-cols-2 gap-4 mt-6 border-t pt-6">
+                    <div>
+                      <div className="text-3xl font-bold text-foreground">2x</div>
+                      <div className="text-sm text-muted-foreground">Increase in Inbound Leads</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-foreground">15hrs</div>
+                      <div className="text-sm text-muted-foreground">Saved per week</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* LinkedIn Fake Post Mock */}
+                <div className="border rounded-2xl bg-card shadow-xl overflow-hidden transform duration-300 hover:scale-[1.02] text-left">
+                  <div className="bg-muted/40 px-4 py-3 border-b flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Linkedin className="w-4 h-4 text-blue-600" />
+                      <span className="font-semibold text-sm">Generated LinkedIn Post</span>
+                    </div>
+                    <Badge className="bg-green-100 text-green-700 hover:bg-green-100 border-0 h-6 dark:bg-green-900/30 dark:text-green-400">100% Original</Badge>
+                  </div>
+                  <div className="p-5 text-sm space-y-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold">CEO</div>
+                      <div>
+                        <p className="font-bold leading-none mb-1">Tech Founder</p>
+                        <p className="text-xs text-muted-foreground">Building the future of Enterprise Cloud</p>
+                      </div>
+                    </div>
+                    <p>The transition from monolith to microservices isn't just a technical challenge—it's an organizational shift. 💡</p>
+
+                    <div className="rounded-lg bg-muted flex flex-col items-center justify-center py-6 border border-border mt-3 relative overflow-hidden group">
+                      <ImageIcon className="w-8 h-8 text-muted-foreground/50 mb-2" />
+                      <span className="text-xs font-medium text-muted-foreground text-center px-4">AI Generated Infographic (DALL-E 3)</span>
+                    </div>
+
+                    <p className="text-blue-600 dark:text-blue-400">#SoftwareEngineering #SaaS #Leadership</p>
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="b2c" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="space-y-6 text-left">
+                  <Badge variant="outline" className="text-pink-500 border-pink-200 bg-pink-50 dark:bg-pink-900/30">B2C Use Case</Badge>
+                  <h3 className="text-2xl font-bold">Driving Viral E-Commerce Sales</h3>
+                  <p className="text-muted-foreground text-lg">"We generated Instagram reels on sustainable trends. The AI scripts matched our brand voice perfectly and saved us thousands on agency fees."</p>
+                  <div className="grid grid-cols-2 gap-4 mt-6 border-t pt-6">
+                    <div>
+                      <div className="text-3xl font-bold text-foreground">+45%</div>
+                      <div className="text-sm text-muted-foreground">Increase in Engagement</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-foreground">3x</div>
+                      <div className="text-sm text-muted-foreground">Faster Content Production</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Instagram Fake Reel Mock */}
+                <div className="border rounded-2xl bg-card shadow-xl overflow-hidden transform duration-300 mx-auto w-full max-w-[320px] hover:scale-[1.02] text-left">
+                  <div className="bg-muted/40 px-4 py-3 border-b flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Instagram className="w-4 h-4 text-pink-600" />
+                      <span className="font-semibold text-sm">Generated IG Reel</span>
+                    </div>
+                    <Badge className="bg-green-100 text-green-700 hover:bg-green-100 border-0 h-6 dark:bg-green-900/30 dark:text-green-400">100% Original</Badge>
+                  </div>
+                  <div className="relative aspect-[9/16] bg-zinc-900 border-b flex flex-col items-center justify-center text-white">
+                    <Video className="w-12 h-12 mb-2 opacity-50 text-white" />
+                    <span className="text-xs font-medium bg-black/60 px-3 py-1.5 rounded-full mb-1 flex items-center gap-1 border border-white/20">
+                      <Sparkles className="w-3 h-3 text-pink-400" /> Auto-Generated Pika Video
+                    </span>
+                    <span className="text-xs opacity-70 px-6 text-center mt-2">"Model walking in sustainable summer wear"</span>
+
+                    <div className="absolute bottom-4 left-4 right-8 text-left">
+                      <p className="font-bold text-sm mb-1">@eco_style</p>
+                      <p className="text-xs line-clamp-2 shadow-black/50 drop-shadow-md">Fast fashion is out. Sustainable futures are IN. 🌱✨ Shop the new 100% recycled drop.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
+            <div className="flex justify-center mt-12">
+              <Link href="/onboarding">
+                <Button size="lg" className="rounded-full shadow-lg">Generate Your Own Content</Button>
+              </Link>
+            </div>
+          </Tabs>
+        </section>
+
+        {/* SOCIAL PROOF */}
+        <section className="w-full py-20 border-t border-foreground/5 text-center">
+          <h2 className="text-3xl font-bold mb-12">Trusted by Marketers</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="bg-background text-left shadow-sm">
+              <CardContent className="pt-6">
+                <div className="flex text-yellow-500 mb-4">
+                  ★ ★ ★ ★ ★
+                </div>
+                <p className="text-muted-foreground italic mb-6">"SocialNiche AI completely transformed our B2B marketing. I used to spend hours ghostwriting for our executives—now I just configure the tone and let the AI generate a month's worth of LinkedIn threads in 5 minutes."</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">MB</div>
+                  <div>
+                    <p className="font-bold text-sm">Marcus B.</p>
+                    <p className="text-xs text-muted-foreground">CMO, Enterprise SaaS</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="bg-background text-left shadow-sm">
+              <CardContent className="pt-6">
+                <div className="flex text-yellow-500 mb-4">
+                  ★ ★ ★ ★ ★
+                </div>
+                <p className="text-muted-foreground italic mb-6">"It made B2C content creation fun again! Finding trending sounds and generating visual hooks for TikTok and Instagram was our biggest bottleneck. Highly recommend to any consumer brand."</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center font-bold text-sm">SL</div>
+                  <div>
+                    <p className="font-bold text-sm">Sarah L.</p>
+                    <p className="text-xs text-muted-foreground">Founder, E-commerce Store</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
       </main>
+
+      {/* FOOTER */}
+      <footer className="w-full border-t border-border bg-muted/20 py-12 px-6 lg:px-12 text-sm text-muted-foreground flex flex-col items-center justify-center">
+        <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-md bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-xs">S</div>
+            <span className="font-bold text-foreground">SocialNiche AI</span>
+          </div>
+
+          <div className="flex gap-6">
+            <Link href="#features" className="hover:text-foreground transition-colors">Features</Link>
+            <Link href="#pricing" className="hover:text-foreground transition-colors">Pricing</Link>
+            <Link href="/dashboard" className="hover:text-foreground transition-colors">Login</Link>
+          </div>
+
+          <div className="flex gap-6 text-xs">
+            <Link href="#" className="hover:underline">Privacy Policy (GDPR)</Link>
+            <Link href="#" className="hover:underline">Terms of Service</Link>
+          </div>
+        </div>
+        <div className="mt-8 text-xs text-center">
+          &copy; {new Date().getFullYear()} SocialNiche AI. All rights reserved. Built for 2026.
+        </div>
+      </footer>
     </div>
   );
 }
