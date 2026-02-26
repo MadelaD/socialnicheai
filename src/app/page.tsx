@@ -56,24 +56,28 @@ export default function LandingPage() {
             </motion.div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground mb-6 leading-tight">
-              Scale Your Brand's Voice with AI <br className="hidden sm:block" />
+              Scale Your Content at the <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 drop-shadow-sm">
-                Zero Effort. Maximum Impact.
+                Speed of Opportunity
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
-              Eliminate hours of trial-and-error in content creation. ContentVelocity AI produces original, high-performing posts tailored to your brand, identifies emerging trends and influencers ahead of the competition, and enables seamless scheduling across platforms—so you can accelerate lead generation, revenue growth, and audience engagement with precision and consistency.
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-4">
+              ContentVelocity AI turns real-time trends and high-performing keywords into strategic content that drives traffic, engagement, and revenue — so your business grows faster across every platform.
+            </p>
+
+            <p className="text-sm text-muted-foreground/80 max-w-2xl mx-auto mb-8 font-medium">
+              Discover emerging signals, generate high-converting posts, and stay ahead of competitors without the guesswork.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               <Link href="/onboarding" className="w-full sm:w-auto">
                 <Button size="lg" className="h-14 px-8 text-lg w-full sm:w-auto shadow-lg shadow-blue-500/25 bg-blue-600 hover:bg-blue-700 text-white transition-all hover:scale-105 active:scale-95 group">
-                  Start Accelerating – Free Trial <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  Start Free Trial <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <Button size="lg" variant="outline" className="h-14 px-8 text-lg w-full sm:w-auto hover:bg-muted transition-colors">
-                Watch a 2-Minute Demo
+                Watch 2-Minute Demo
               </Button>
             </div>
 
